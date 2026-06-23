@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Postulaciones - TalentBoard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { background-color: #f8f9fa; }
+        .table-container { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+    </style>
+</head>
+<body>
+
+<div class="container mt-5">
+    <div class="table-container">
+        <h2 class="mb-4 text-primary">Gestión de Postulaciones</h2>
+
+        <table class="table table-hover table-striped">
+            <thead class="table-primary">
+            <tr>
+                <th>Candidato</th>
+                <th>Vacante</th>
+                <th>Fecha</th>
+                <th>Estado</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="app : ${applications}">
+                <td th:text="${app.candidate.firstName + ' ' + app.candidate.lastName}">Nombre Candidato</td>
+                <td th:text="${app.vacancy.title}">Título Vacante</td>
+                <td th:text="${#temporals.format(app.applicationDate, 'dd/MM/yyyy HH:mm')}">Fecha</td>
+                <td>
+                    <span class="badge bg-success" th:text="${app.status}">Estado</span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

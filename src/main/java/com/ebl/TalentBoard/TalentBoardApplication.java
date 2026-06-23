@@ -1,0 +1,13 @@
+package com.ebl.TalentBoard;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class TalentBoardApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(TalentBoardApplication.class, args);
+	}
+
+}
